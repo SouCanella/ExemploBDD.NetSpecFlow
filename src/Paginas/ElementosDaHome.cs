@@ -7,8 +7,8 @@ namespace ExemploBDDTesteSeleniumSpecFlow.Paginas
     {
         public IWebElement CampoDePesquisa => RetornarElementoPorNome("q");
         public IWebElement LogoHome => RetornarElementoPorId("hplogo");
-
-
+        public IWebElement ResultadoDaPesquisa => RetornarElementoPorId("resultStats");
+                
         public ElementosDaHome(IWebDriver navegador) : base(navegador)
         {
         }

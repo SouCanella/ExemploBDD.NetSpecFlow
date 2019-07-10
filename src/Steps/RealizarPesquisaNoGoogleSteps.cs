@@ -2,13 +2,14 @@
 using ExemploBDDTesteSeleniumSpecFlow.Utils;
 using NUnit.Framework;
 using ExemploBDDTesteSeleniumSpecFlow.Paginas;
+using System;
 
 namespace ExemploBDDTesteSeleniumSpecFlow.Steps
 {
     [Binding]
     public class RealizarPesquisaNoGoogleSteps
     {
-        private ElementosDaHome _elementosDaHome;
+        private readonly ElementosDaHome _elementosDaHome;
 
 
         public RealizarPesquisaNoGoogleSteps()
@@ -20,7 +21,7 @@ namespace ExemploBDDTesteSeleniumSpecFlow.Steps
         public void DadoQueEstouNaPagina()
         {           
             var paginaInicial = _elementosDaHome.LogoHome;
-            Assert.IsNotNull(paginaInicial);           
+            Assert.IsTrue(paginaInicial.Displayed);
         }
         
         [When(@"realizo um pesquisa")]
@@ -28,14 +29,16 @@ namespace ExemploBDDTesteSeleniumSpecFlow.Steps
         {
             var campoPesquisa = _elementosDaHome.CampoDePesquisa;
             campoPesquisa.Click();
-            campoPesquisa.SendKeys("SpecFlow");                          
+            campoPesquisa.SendKeys("SpecFlow");
+            campoPesquisa.Submit();
            
         }
 
         [Then(@"Verifico resultado da pesquisa")]
         public void EntaoVerificoResultadoDaPesquisa()
         {
-            Assert.Pass();            
+            var resultadodaPesquisa = _elementosDaHome.ResultadoDaPesquisa;
+            Assert.IsTrue(resultadodaPesquisa.Displayed);
         }
     }
 }
