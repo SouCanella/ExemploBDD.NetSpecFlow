@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="nunit" Version="3.10.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.1.1" />
+    <PackageReference Include="Selenium.Chrome.WebDriver" Version="74.0.0" />
+    <PackageReference Include="Selenium.Firefox.WebDriver" Version="0.24.0" />
+    <PackageReference Include="Selenium.Support" Version="3.141.0" />
+    <PackageReference Include="Selenium.Utils" Version="1.0.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="SpecFlow" Version="3.0.220" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.0.220" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Cenarios\RealizarPesquisaNoGoogle.feature.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>RealizarPesquisaNoGoogle.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Utils\Hooks.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Cenarios\RealizarPesquisaNoGoogle.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RealizarPesquisaNoGoogle.feature.cs</LastGenOutput>
+    </None>
+    <None Update="Scenarios\SpecFlowFeature1.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SpecFlowFeature1.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecFlowFeatureFiles Update="Cenarios\RealizarPesquisaNoGoogle.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RealizarPesquisaNoGoogle.feature.cs</LastGenOutput>
+    </SpecFlowFeatureFiles>
+  </ItemGroup>
+
+</Project>
